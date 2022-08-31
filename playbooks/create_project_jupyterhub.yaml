@@ -1,0 +1,17 @@
+# Reference: https://docs.ansible.com/ansible/2.5/modules/docker_container_module.html
+- name: Create project jupyterhub containers
+  hosts: ec2_node
+  become: true
+  tasks:
+    - name: Create container for {{ CLIENT_NAME }}
+      docker_container:
+        name: '{{ PROJECT_CONTAINER_NAME }}'
+        image: 'kanyakiat/jupyterhub-native-authenticator-docker'
+        cpuset_cpus: '{{ PROJECT_CPUSET_CPUS }}'
+        memory: '{{ PROJECT_MEMORY }}'
+        ports: '{{ PROJECT_PORTS }}'
+        restart_policy: always
+        interactive: true
+        tty: true
+        detach: true
+        state: started

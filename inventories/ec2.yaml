@@ -1,0 +1,6 @@
+ec2_node:
+  hosts:
+    node_1:
+      ansible_connection: ssh
+      ansible_user: ubuntu
+      ansible_host: '{{ ANSIBLE_HOST }}'

@@ -6,7 +6,7 @@
     - name: Create container for {{ CLIENT_NAME }}
       docker_container:
         name: '{{ PROJECT_CONTAINER_NAME }}'
-        image: 'kanyakiat/jupyterhub-native-authenticator-docker'
+        image: 'jumpai/jupyterhub-native-authenticator-docker'
         cpuset_cpus: '{{ PROJECT_CPUSET_CPUS }}'
         memory: '{{ PROJECT_MEMORY }}'
         ports: '{{ PROJECT_PORTS }}'
